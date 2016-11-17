@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="project.vyas.footballmanager.LoginActivity">
+    tools:context="project.vyas.footballmanager.MatchActivity">
 
     <!-- Login progress -->
     <ProgressBar
