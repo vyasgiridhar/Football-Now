@@ -29,5 +29,6 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.7.0@aar') {
         transitive = true
     }
+    compile 'com.github.gabrielemariotti.cards:library:1.9.1'
 
 }

@@ -1,5 +1,6 @@
 package project.vyas.footballmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.ActionBar;
@@ -13,6 +14,8 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import project.vyas.footballmanager.adpater.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener(){
                     @Override
                     public boolean onItemClick(View view,int position,IDrawerItem drawerItem){
-
+                        Intent intent = new Intent(getApplicationContext(), TeamViewActivity.class);
+                        intent.putExtra("Team Name","F C Barcelona");
+                        startActivity(intent);
                         return true;
                     }
                 })

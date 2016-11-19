@@ -1,26 +1,31 @@
-package project.vyas.footballmanager;
+package project.vyas.footballmanager.adpater;
+
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import project.vyas.footballmanager.tabs.YesterdayFragment;
+import project.vyas.footballmanager.tabs.TeamStatFragment;
 import project.vyas.footballmanager.tabs.TodayFragment;
 import project.vyas.footballmanager.tabs.TomorrowFragment;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+/**
+ * Created by vyas on 11/19/16.
+ */
+
+public class TeamViewPagerAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT = 3;
-    private String tabtitles[] = new String[] { "Yesterday", "Today", "Tomorrow" };
+    private String tabtitles[] = new String[] { "About", "Squad", "Fixtures" };
     Context context;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public TeamViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return 3;
     }
 
     @Override
@@ -28,8 +33,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                YesterdayFragment yesterdayFragment = new YesterdayFragment();
-                return yesterdayFragment;
+                TeamStatFragment teamStatFragment = new TeamStatFragment();
+                return teamStatFragment;
 
             case 1:
                 TodayFragment todayFragment = new TodayFragment();
