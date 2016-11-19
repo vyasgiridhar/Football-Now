@@ -10,10 +10,10 @@ import android.support.v7.widget.Toolbar;
 import project.vyas.footballmanager.adpater.TeamViewPagerAdapter;
 
 /**
- * Created by vyas on 11/18/16.
+ * Created by vyas on 11/19/16.
  */
 
-public class TeamViewActivity extends AppCompatActivity {
+public class LeagueViewActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     ActionBar actionBar;
@@ -24,26 +24,25 @@ public class TeamViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.team_view_activity);
+        setContentView(R.layout.league_view_activity);
 
         Bundle teamInfo = getIntent().getExtras();
         TeamName = teamInfo.getString("Team Name");
 
-        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.team_nest_scrollview);
-        scrollView.setFillViewport (true);
+        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.league_nest_scrollview);
+        scrollView.setFillViewport(true);
 
 
         viewPager = (ViewPager) findViewById(R.id.team_pager);
         viewPager.setAdapter(new TeamViewPagerAdapter(getSupportFragmentManager()));
         viewPager.setCurrentItem(1);
 
-        toolbar = (Toolbar) findViewById(R.id.team_name_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.league_name_toolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(TeamName);
         }
-
 
 
     }

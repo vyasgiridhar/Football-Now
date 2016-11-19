@@ -1,10 +1,10 @@
 package project.vyas.footballmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -13,6 +13,8 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import project.vyas.footballmanager.adpater.FixtureViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new FixtureViewPagerAdapter(getSupportFragmentManager()));
         viewPager.setCurrentItem(1);
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -55,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener(){
                     @Override
                     public boolean onItemClick(View view,int position,IDrawerItem drawerItem){
-
+                        Intent intent = new Intent(getApplicationContext(), TeamViewActivity.class);
+                        intent.putExtra("Team Name","F C Barcelona");
+                        startActivity(intent);
                         return true;
                     }
                 })
