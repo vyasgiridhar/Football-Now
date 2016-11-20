@@ -17,7 +17,7 @@ public class LeagueViewPagerAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT = 3;
     Context context;
-    private String tabtitles[] = new String[]{"Yesterday", "Today", "Tomorrow"};
+    private String tabtitles[] = new String[]{"Stats", "Table", "Fixtures"};
 
     public LeagueViewPagerAdapter(FragmentManager fm) {
         super(fm);

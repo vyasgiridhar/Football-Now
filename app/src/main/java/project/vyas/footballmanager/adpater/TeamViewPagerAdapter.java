@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import project.vyas.footballmanager.tabs.TeamSquadFragment;
 import project.vyas.footballmanager.tabs.TeamStatFragment;
 import project.vyas.footballmanager.tabs.TodayFragment;
-import project.vyas.footballmanager.tabs.TomorrowFragment;
 
 /**
  * Created by vyas on 11/19/16.
@@ -17,7 +17,7 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT = 3;
     Context context;
-    private String tabtitles[] = new String[]{"About", "Squad", "Fixtures"};
+    private String tabtitles[] = new String[]{"About", "Fixtures", "Squad"};
 
     public TeamViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -41,8 +41,8 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
                 return todayFragment;
 
             case 2:
-                TomorrowFragment tomorrowFragment = new TomorrowFragment();
-                return tomorrowFragment;
+                TeamSquadFragment teamSquadFragment = new TeamSquadFragment();
+                return teamSquadFragment;
         }
         return null;
     }
