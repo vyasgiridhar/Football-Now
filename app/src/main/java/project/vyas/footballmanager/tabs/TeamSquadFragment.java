@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import project.vyas.footballmanager.R;
 
@@ -17,6 +18,10 @@ public class TeamSquadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.team_view_info_fragment, container, false);
+        ListView squadList = (ListView) view.findViewById(R.id.squadlist);
+
+        //  SquadListAdapter adapter = new SquadListAdapter();
+        //  squadList.setAdapter();
         return view;
     }
 
