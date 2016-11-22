@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import project.vyas.footballmanager.tabs.TeamSquadFragment;
 import project.vyas.footballmanager.tabs.TeamStatFragment;
-import project.vyas.footballmanager.tabs.TodayFragment;
+import project.vyas.footballmanager.tabs.FixtureViewFragment;
 
 /**
  * Created by vyas on 11/19/16.
@@ -37,8 +37,8 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
                 return teamStatFragment;
 
             case 1:
-                TodayFragment todayFragment = new TodayFragment();
-                return todayFragment;
+                FixtureViewFragment fixtureViewFragment = new FixtureViewFragment();
+                return fixtureViewFragment;
 
             case 2:
                 TeamSquadFragment teamSquadFragment = new TeamSquadFragment();

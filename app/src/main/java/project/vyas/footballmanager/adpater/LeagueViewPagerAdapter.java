@@ -5,10 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import project.vyas.footballmanager.tabs.TodayFragment;
-import project.vyas.footballmanager.tabs.TomorrowFragment;
-import project.vyas.footballmanager.tabs.YesterdayFragment;
-
+import project.vyas.footballmanager.tabs.FixtureViewFragment;
 /**
  * Created by vyas on 11/19/16.
  */
@@ -33,16 +30,18 @@ public class LeagueViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                YesterdayFragment yesterdayFragment = new YesterdayFragment();
-                return yesterdayFragment;
+                //TODO: League Table
+               /* YesterdayFragment yesterdayFragment = new YesterdayFragment();
+                return yesterdayFragment;*/
 
             case 1:
-                TodayFragment todayFragment = new TodayFragment();
-                return todayFragment;
+                FixtureViewFragment fixtureViewFragment = new FixtureViewFragment();
+                return fixtureViewFragment;
 
             case 2:
-                TomorrowFragment tomorrowFragment = new TomorrowFragment();
-                return tomorrowFragment;
+                //TODO: League Stats
+               /* TomorrowFragment tomorrowFragment = new TomorrowFragment();
+                return tomorrowFragment;*/
         }
         return null;
     }

@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import project.vyas.footballmanager.tabs.TodayFragment;
-import project.vyas.footballmanager.tabs.TomorrowFragment;
-import project.vyas.footballmanager.tabs.YesterdayFragment;
+import project.vyas.footballmanager.tabs.FixtureViewFragment;
 
 public class FixtureViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -29,16 +27,16 @@ public class FixtureViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                YesterdayFragment yesterdayFragment = new YesterdayFragment();
-                return yesterdayFragment;
+                FixtureViewFragment fixtureViewFragment= FixtureViewFragment.newInstance(false,false,true,"","",-1);
+                return fixtureViewFragment;
 
             case 1:
-                TodayFragment todayFragment = new TodayFragment();
-                return todayFragment;
+                FixtureViewFragment fixtureViewFragment1 = FixtureViewFragment.newInstance(false,false,false,"","",0);
+                return fixtureViewFragment1;
 
             case 2:
-                TomorrowFragment tomorrowFragment = new TomorrowFragment();
-                return tomorrowFragment;
+                FixtureViewFragment fixtureViewFragment2= FixtureViewFragment.newInstance(false,false,true,"","",1);
+                return fixtureViewFragment2;
         }
         return null;
     }
