@@ -31,7 +31,7 @@ public class FixtureViewPagerAdapter extends FragmentPagerAdapter {
                 return fixtureViewFragment;
 
             case 1:
-                FixtureViewFragment fixtureViewFragment1 = FixtureViewFragment.newInstance(false,false,false,"","",0);
+                FixtureViewFragment fixtureViewFragment1 = FixtureViewFragment.newInstance(false, false, true, "", "", 0);
                 return fixtureViewFragment1;
 
             case 2:

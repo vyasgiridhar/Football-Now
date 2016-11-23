@@ -43,22 +43,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Select League");
-        item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Select Team");
 
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(myToolbar)
                 .addDrawerItems(
                         item1,
-                        new DividerDrawerItem(),
-                        item2,
                         new DividerDrawerItem()
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener(){
                     @Override
                     public boolean onItemClick(View view,int position,IDrawerItem drawerItem){
-                        Intent intent = new Intent(getApplicationContext(), TeamViewActivity.class);
-                        intent.putExtra("Team Name","F C Barcelona");
+                        Intent intent = new Intent(getApplicationContext(), SelectLeagueActivity.class);
                         startActivity(intent);
                         return true;
                     }

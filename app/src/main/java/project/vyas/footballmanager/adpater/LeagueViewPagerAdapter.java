@@ -12,12 +12,14 @@ import project.vyas.footballmanager.tabs.FixtureViewFragment;
 
 public class LeagueViewPagerAdapter extends FragmentPagerAdapter {
 
-    private final int PAGE_COUNT = 3;
-    Context context;
-    private String tabtitles[] = new String[]{"Stats", "Table", "Fixtures"};
+    private final int PAGE_COUNT = 2;
+    private Context context;
+    private String tabtitles[] = new String[]{"Table", "Fixtures"};
+    private String LeagueName;
 
-    public LeagueViewPagerAdapter(FragmentManager fm) {
+    public LeagueViewPagerAdapter(FragmentManager fm, String ln) {
         super(fm);
+        this.LeagueName = ln;
     }
 
     @Override
@@ -31,17 +33,10 @@ public class LeagueViewPagerAdapter extends FragmentPagerAdapter {
 
             case 0:
                 //TODO: League Table
-               /* YesterdayFragment yesterdayFragment = new YesterdayFragment();
-                return yesterdayFragment;*/
 
             case 1:
-                FixtureViewFragment fixtureViewFragment = new FixtureViewFragment();
+                FixtureViewFragment fixtureViewFragment = FixtureViewFragment.newInstance(false, true, false, null, LeagueName, 0);
                 return fixtureViewFragment;
-
-            case 2:
-                //TODO: League Stats
-               /* TomorrowFragment tomorrowFragment = new TomorrowFragment();
-                return tomorrowFragment;*/
         }
         return null;
     }

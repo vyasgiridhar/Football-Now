@@ -34,7 +34,7 @@ public class TeamViewActivity extends AppCompatActivity {
 
 
         viewPager = (ViewPager) findViewById(R.id.team_pager);
-        viewPager.setAdapter(new TeamViewPagerAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new TeamViewPagerAdapter(getSupportFragmentManager(), TeamName));
         viewPager.setCurrentItem(1);
 
         toolbar = (Toolbar) findViewById(R.id.team_name_toolbar);

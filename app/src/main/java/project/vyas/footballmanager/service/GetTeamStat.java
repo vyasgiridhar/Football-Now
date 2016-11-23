@@ -4,38 +4,37 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
-import okhttp3.MediaType;
+import it.gmariotti.cardslib.library.internal.CardHeader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import project.vyas.footballmanager.adpater.SquadListAdapter;
-import project.vyas.footballmanager.model.Player;
+import project.vyas.footballmanager.model.TeamStat;
 
 /**
- * Created by vyas on 11/21/16.
+ * Created by vyas on 11/23/16.
  */
 
-public class GetSquad extends AsyncTask<Void, Void, Boolean> {
+public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
 
-    private ListView lv;
     private String TeamName;
     private Context context;
     private ProgressDialog pd;
-    private ArrayList<Player> squad;
+    private TeamStat stat;
+    private CardHeader ch1, ch2, ch3;
 
-    public GetSquad(ListView listView,String Name,Context context) {
-        this.lv = listView;
+    public GetTeamStat(CardHeader c, CardHeader c1, CardHeader c2, String Name, Context context) {
+        this.ch1 = c;
+        this.ch2 = c1;
+        this.ch3 = c2;
         this.TeamName = Name;
         this.context = context;
     }
+
     protected void onPreExecute() {
         pd = new ProgressDialog(context);
         pd.setMessage("Loading");
@@ -44,29 +43,29 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        MediaType JSON
-                = MediaType.parse("application/json; charset=utf-8");
 
         try {
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://192.168.43.58:5000/Team/squad/" + TeamName)
+                    .url("http://192.168.43.58:5000/Team/stat/" + TeamName)
                     .build();
             Response response = client.newCall(request).execute();
             String result = response.body().string();
-            Player p = new Player();
+            stat = new TeamStat();
             try {
-                squad = new ArrayList<>();
                 JSONArray json = new JSONArray(result);
                 for (int i = 0; i < json.length(); i++) {
-                    JSONObject player = json.getJSONObject(i);
-                    p.setId(player.getString("Player_id"));
-                    p.setfName(player.getString("fname"));
-                    p.setlName(player.getString("l_name"));
-                    p.setImageUrl(player.getString("Image"));
-                    p.setPosition(player.getString("Pos"));
-                    squad.add(p);
+                    JSONObject team = json.getJSONObject(i);
+                    if (team.get("Captain") != null) {
+                        stat.setCaptain(team.getString("Captain"));
+                    }
+                    if (team.get("Manager") != null) {
+                        stat.setManager(team.getString("Manager"));
+                    }
+                    if (team.get("Stadium") != null) {
+                        stat.setStadium(team.getString("Stadium"));
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -85,8 +84,9 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean status) {
         pd.dismiss();
         if (status) {
-            SquadListAdapter adapter = new SquadListAdapter(squad, context);
-            lv.setAdapter(adapter);
+            ch1.setTitle("Manager : " + stat.getManager());
+            ch2.setTitle("Captain : " + stat.getCaptain());
+            ch3.setTitle("Stadium : " + stat.getStadium());
         } else {
             Toast.makeText(context, "Network Error", Toast.LENGTH_LONG).show();
         }

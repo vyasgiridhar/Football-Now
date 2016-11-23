@@ -5,10 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -19,7 +16,7 @@ import project.vyas.footballmanager.model.Fixture;
  * Created by vyas on 11/20/16.
  */
 
-public class FixtureListAdapter extends ArrayAdapter<Fixture> implements View.OnClickListener {
+public class FixtureListAdapter extends ArrayAdapter<Fixture> {
 
 
     private Context context;
@@ -28,18 +25,12 @@ public class FixtureListAdapter extends ArrayAdapter<Fixture> implements View.On
 
 
     public FixtureListAdapter(ArrayList<Fixture> data, Context context) {
-        super(context, R.layout.team_view_squad_item, data);
+        super(context, R.layout.fixture_view_list_item, data);
         this.Data = data;
         this.context = context;
 
     }
 
-
-    @Override
-    public void onClick(View v) {
-
-
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

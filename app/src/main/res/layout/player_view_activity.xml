@@ -54,14 +54,15 @@
         android:id="@+id/player_nest_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="project.vyas.footballmanager.PlayerViewActivity"
         tools:showIn="@layout/player_view_activity">
 
     <ListView
+        android:id="@+id/player_details"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/player_details"/>
+        android:layout_height="match_parent" />
 
     </android.support.v4.widget.NestedScrollView>
 

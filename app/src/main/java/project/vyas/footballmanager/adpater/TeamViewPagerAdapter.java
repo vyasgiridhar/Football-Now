@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import project.vyas.footballmanager.tabs.FixtureViewFragment;
 import project.vyas.footballmanager.tabs.TeamSquadFragment;
 import project.vyas.footballmanager.tabs.TeamStatFragment;
-import project.vyas.footballmanager.tabs.FixtureViewFragment;
 
 /**
  * Created by vyas on 11/19/16.
@@ -18,9 +18,11 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
     private final int PAGE_COUNT = 3;
     Context context;
     private String tabtitles[] = new String[]{"About", "Fixtures", "Squad"};
+    private String TeamName;
 
-    public TeamViewPagerAdapter(FragmentManager fm) {
+    public TeamViewPagerAdapter(FragmentManager fm, String TeamName) {
         super(fm);
+        this.TeamName = TeamName;
     }
 
     @Override
@@ -33,11 +35,11 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                TeamStatFragment teamStatFragment = new TeamStatFragment();
+                TeamStatFragment teamStatFragment = TeamStatFragment.newInstance(TeamName);
                 return teamStatFragment;
 
             case 1:
-                FixtureViewFragment fixtureViewFragment = new FixtureViewFragment();
+                FixtureViewFragment fixtureViewFragment = FixtureViewFragment.newInstance(true, false, false, TeamName, null, 0);
                 return fixtureViewFragment;
 
             case 2:

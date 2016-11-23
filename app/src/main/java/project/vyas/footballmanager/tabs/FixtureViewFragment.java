@@ -11,12 +11,6 @@ import project.vyas.footballmanager.R;
 
 public class FixtureViewFragment extends Fragment {
 
-    Boolean Team;
-    Boolean League;
-    Boolean Day;
-
-    String TeamName;
-    String LeagueName;
 
     public static FixtureViewFragment newInstance(Boolean team,Boolean league,Boolean day,String teamname ,String leaguename,int days) {
         FixtureViewFragment myFragment = new FixtureViewFragment();
@@ -25,8 +19,8 @@ public class FixtureViewFragment extends Fragment {
         args.putBoolean("team", team);
         args.putBoolean("league",league);
         args.putBoolean("day",day);
-        args.putString("teamname",teamname);
-        args.putString("leaguename",leaguename);
+        args.putString("TeamName", teamname);
+        args.putString("LeagueName", leaguename);
         args.putInt("day",days);
         myFragment.setArguments(args);
 
@@ -42,7 +36,9 @@ public class FixtureViewFragment extends Fragment {
 
         Bundle bundle = getArguments();
 
-
+        if (bundle.getBoolean("team")) {
+            bundle.getBoolean("teamname");
+        }
      //   FixtureListAdapter fixtureListAdapter = new FixtureListAdapter();
         return view;
     }
