@@ -9,36 +9,37 @@ import java.util.Date;
 
 public class Fixture {
 
+    public int homeScore;
+    public int awayScore;
     private String LeagueCode;
     private int GameWeek;
     private int GameNo;
     private String HomeTeam;
     private String AwayTeam;
     private Date MatchDate;
-    private class Score{
-        public int homeScore;
-        public int awayScore;
+
+    public int getHomeScore() {
+        return homeScore;
     }
-    private Score MatchScore;
 
     public void setHomeScore(int homeScore){
-        MatchScore.homeScore = homeScore;
+        this.homeScore = homeScore;
     }
 
-    public int getHomeScore(){
-        return MatchScore.homeScore;
+    public int getAwayScore() {
+        return awayScore;
     }
 
     public void setAwayScore(int awayScore){
-        MatchScore.awayScore = awayScore;
-    }
-
-    public int getAwayScore(){
-        return MatchScore.awayScore;
+        this.awayScore = awayScore;
     }
 
     public int getGameNo() {
         return GameNo;
+    }
+
+    public void setGameNo(int gameNo) {
+        GameNo = gameNo;
     }
 
     public String getLeagueCode() {
@@ -55,10 +56,6 @@ public class Fixture {
 
     public void setGameWeek(int gameWeek) {
         GameWeek = gameWeek;
-    }
-
-    public void setGameNo(int gameNo) {
-        GameNo = gameNo;
     }
 
     public String getHomeTeam() {

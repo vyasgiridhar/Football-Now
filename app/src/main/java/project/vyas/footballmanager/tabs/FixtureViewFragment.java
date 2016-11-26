@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import project.vyas.footballmanager.R;
+import project.vyas.footballmanager.service.GetFixture;
 
 public class FixtureViewFragment extends Fragment {
 
@@ -21,7 +23,7 @@ public class FixtureViewFragment extends Fragment {
         args.putBoolean("day",day);
         args.putString("TeamName", teamname);
         args.putString("LeagueName", leaguename);
-        args.putInt("day",days);
+        args.putInt("days", days);
         myFragment.setArguments(args);
 
         return myFragment;
@@ -36,10 +38,13 @@ public class FixtureViewFragment extends Fragment {
 
         Bundle bundle = getArguments();
 
-        if (bundle.getBoolean("team")) {
-            bundle.getBoolean("teamname");
-        }
-     //   FixtureListAdapter fixtureListAdapter = new FixtureListAdapter();
+        new GetFixture(listView, view.getContext(), bundle.getBoolean("team"), bundle.getBoolean("league"), bundle.getBoolean("day"), bundle.getString("TeamName"), bundle.getString("LeagueName"), bundle.getInt("days")).execute();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
         return view;
     }
 

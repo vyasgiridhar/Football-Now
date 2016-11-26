@@ -15,7 +15,7 @@
         android:layout_marginTop="33dp"
         android:paddingLeft="@dimen/materialize_typography_body1"
         android:text="Barcelona"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/team2"
@@ -26,7 +26,7 @@
         android:layout_alignParentRight="true"
         android:paddingRight="@dimen/materialize_typography_body1"
         android:text="Arcenal"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/score"
@@ -35,5 +35,5 @@
         android:layout_alignTop="@+id/team2"
         android:layout_centerHorizontal="true"
         android:text="2-0"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 </RelativeLayout>

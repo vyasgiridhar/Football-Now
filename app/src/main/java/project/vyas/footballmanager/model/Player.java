@@ -16,7 +16,13 @@ public class Player {
     private int Rating;
     private String Position;
     private String ImageUrl;
-
+    private int Pace;
+    private int Dribbling;
+    private int Shot;
+    private int Passing;
+    private int Defence;
+    private int Age;
+    private int Strength;
     public String getId() {
         return id;
     }
@@ -87,5 +93,61 @@ public class Player {
 
     public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
+    }
+
+    public int getDefence() {
+        return Defence;
+    }
+
+    public void setDefence(int defence) {
+        Defence = defence;
+    }
+
+    public int getPassing() {
+        return Passing;
+    }
+
+    public void setPassing(int passing) {
+        Passing = passing;
+    }
+
+    public int getShot() {
+        return Shot;
+    }
+
+    public void setShot(int shot) {
+        Shot = shot;
+    }
+
+    public int getDribbling() {
+        return Dribbling;
+    }
+
+    public void setDribbling(int dribbling) {
+        Dribbling = dribbling;
+    }
+
+    public int getPace() {
+        return Pace;
+    }
+
+    public void setPace(int pace) {
+        Pace = pace;
+    }
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
+    }
+
+    public int getStrength() {
+        return Strength;
+    }
+
+    public void setStrength(int strength) {
+        Strength = strength;
     }
 }

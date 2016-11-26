@@ -19,7 +19,7 @@ import project.vyas.footballmanager.model.Player;
  * Created by vyas on 11/20/16.
  */
 
-public class SquadListAdapter extends ArrayAdapter<Player> implements View.OnClickListener {
+public class SquadListAdapter extends ArrayAdapter<Player> {
 
     private Context context;
     private ArrayList<Player> Data;
@@ -34,23 +34,9 @@ public class SquadListAdapter extends ArrayAdapter<Player> implements View.OnCli
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-        int position = (Integer) v.getTag();
-        Object object = getItem(position);
-        Player data = (Player) object;
-
-        /*Intent i = new Intent(getContext(), PlayerViewActivity.class);
-        i.putExtra("Player",PlayerViewActivity.class);
-        */
-
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        Player data = getItem(position);
 
         ViewHolder viewHolder;
 
@@ -72,10 +58,10 @@ public class SquadListAdapter extends ArrayAdapter<Player> implements View.OnCli
 
         lastPosition = position;
 
-        viewHolder.Name.setText(data.getfName() + " " + data.getlName());
-        viewHolder.Position.setText(data.getPosition());
+        viewHolder.Name.setText(Data.get(position).getfName() + " " + Data.get(position).getlName());
+        viewHolder.Position.setText(Data.get(position).getPosition());
         Picasso.with(context)
-                .load(data.getImageUrl())
+                .load(Data.get(position).getImageUrl())
                 .resize(50, 50)
                 .centerCrop()
                 .into(viewHolder.Picture);

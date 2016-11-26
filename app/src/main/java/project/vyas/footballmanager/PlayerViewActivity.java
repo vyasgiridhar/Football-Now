@@ -1,14 +1,13 @@
 package project.vyas.footballmanager;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ListView;
+import android.widget.TextView;
 
-import project.vyas.footballmanager.adpater.TeamViewPagerAdapter;
+import project.vyas.footballmanager.service.GetPlayer;
 
 /**
  * Created by vyas on 11/20/16.
@@ -29,16 +28,14 @@ public class PlayerViewActivity extends AppCompatActivity {
         Bundle teamInfo = getIntent().getExtras();
         PlayerName = teamInfo.getString("Player Name");
 
-        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.player_nest_scrollview);
-        scrollView.setFillViewport(true);
-
         toolbar = (Toolbar) findViewById(R.id.player_name_toolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(PlayerName);
         }
-
-
+        TextView tv = (TextView) findViewById(R.id.player_name);
+        ListView listView = (ListView) findViewById(R.id.player_details);
+        new GetPlayer(listView, this, tv, PlayerName).execute();
     }
 }

@@ -60,6 +60,7 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
 
     protected Boolean doInBackground(Void... aParams) {
         String url = "";
+        JSONObject json = null;
         try {
             if (Team) {
                 url = "/Fixture/team/" + TeamName;
@@ -70,33 +71,46 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
             } else if (Day) {
                 final Calendar c = Calendar.getInstance();
                 String date = new StringBuilder()
-                        .append(c.get(Calendar.DATE) + day).append("-")
+                        .append(c.get(Calendar.YEAR)).append("-")
                         .append(c.get(Calendar.MONTH) + 1).append("-")
-                        .append(c.get(Calendar.YEAR)).toString();
+                        .append(/*c.get(2) + day+1*/2).toString();
+
                 url = "/Fixture/day/" + date;
             }
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
+            url = "http://192.168.43.58:5000" + url;
+            Log.d("URL", url);
             Request request = new Request.Builder()
-                    .url("http://192.168.43.58:5000" + url)
+                    .url(url)
+                    .get()
                     .build();
+
             Response response = client.newCall(request).execute();
             String result = response.body().string();
-            JSONArray json = new JSONArray(result);
+
+            result = result.replace("\n", "");
+            result = result.replace("\"", "");
+
+            json = new JSONObject(result);
             fixtures = new ArrayList<>();
-            for (int i = 0; i < json.length(); i++) {
+            JSONArray array = json.getJSONArray("result");
+            for (int i = 0; i < array.length(); i++) {
                 Fixture f = new Fixture();
-                JSONObject object = json.getJSONObject(i);
-                f.setAwayScore(object.getInt("Home_team_score"));
-                f.setHomeScore(object.getInt("Away_team_score"));
+                JSONObject object = array.getJSONObject(i);
+                if (!object.isNull("Away_team_score"))
+                    f.setAwayScore(object.getInt("Away_team_score"));
+                if (!object.isNull("Home_team_score"))
+                    f.setHomeScore(object.getInt("Home_team_score"));
                 f.setAwayTeam(object.getString("Away_team"));
                 f.setHomeTeam(object.getString("Home_team"));
-                DateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+                DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 f.setMatchDate(formatter.parse(object.getString("M_date")));
                 f.setGameWeek(object.getInt("Gameweek"));
                 f.setGameNo(object.getInt("Gameno"));
                 f.setLeagueCode(object.getString("League_code"));
                 fixtures.add(f);
+                Log.d("Length", "doInBackground: " + fixtures.size());
             }
         } catch (Exception e) {
             Log.d("Error : ", e.toString());
@@ -115,6 +129,5 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
             Toast.makeText(context, "Network Error", Toast.LENGTH_LONG).show();
         }
     }
-
 
 }
