@@ -19,16 +19,9 @@ import project.vyas.footballmanager.model.Fixture;
 public class FixtureListAdapter extends ArrayAdapter<Fixture> {
 
 
-    private Context context;
-    private ArrayList<Fixture> Data;
-    private int lastPosition = -1;
-
 
     public FixtureListAdapter(ArrayList<Fixture> data, Context context) {
         super(context, R.layout.fixture_view_list_item, data);
-        this.Data = data;
-        this.context = context;
-
     }
 
 
@@ -54,8 +47,6 @@ public class FixtureListAdapter extends ArrayAdapter<Fixture> {
         } else {
             viewHolder = (FixtureListAdapter.ViewHolder) convertView.getTag();
         }
-
-        lastPosition = position;
 
         viewHolder.Team1.setText(data.getHomeTeam());
         viewHolder.Team2.setText(data.getAwayTeam());

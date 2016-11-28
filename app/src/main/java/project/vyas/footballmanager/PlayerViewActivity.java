@@ -28,7 +28,7 @@ public class PlayerViewActivity extends AppCompatActivity {
         Bundle teamInfo = getIntent().getExtras();
         PlayerName = teamInfo.getString("Player Name");
 
-        toolbar = (Toolbar) findViewById(R.id.player_name_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         if (actionBar != null) {

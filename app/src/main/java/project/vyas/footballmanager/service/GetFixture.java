@@ -73,7 +73,7 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
                 String date = new StringBuilder()
                         .append(c.get(Calendar.YEAR)).append("-")
                         .append(c.get(Calendar.MONTH) + 1).append("-")
-                        .append(/*c.get(2) + day+1*/2).toString();
+                        .append(c.get(Calendar.DATE)).toString();
 
                 url = "/Fixture/day/" + date;
             }
@@ -110,7 +110,6 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
                 f.setGameNo(object.getInt("Gameno"));
                 f.setLeagueCode(object.getString("League_code"));
                 fixtures.add(f);
-                Log.d("Length", "doInBackground: " + fixtures.size());
             }
         } catch (Exception e) {
             Log.d("Error : ", e.toString());

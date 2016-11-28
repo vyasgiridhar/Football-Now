@@ -43,7 +43,7 @@ public class TeamViewPagerAdapter extends FragmentPagerAdapter {
                 return fixtureViewFragment;
 
             case 2:
-                TeamSquadFragment teamSquadFragment = new TeamSquadFragment();
+                TeamSquadFragment teamSquadFragment = TeamSquadFragment.newInstance(TeamName);
                 return teamSquadFragment;
         }
         return null;

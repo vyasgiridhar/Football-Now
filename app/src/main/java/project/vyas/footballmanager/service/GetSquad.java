@@ -12,7 +12,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -33,7 +32,9 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
 
     public GetSquad(ListView listView,String Name,Context context) {
         this.lv = listView;
-        this.TeamName = Name;
+        this.TeamName = Name.replace("FC", "");
+        this.TeamName = this.TeamName.trim().replace(" ", "%20");
+        Log.d("Team", TeamName);
         this.context = context;
     }
     protected void onPreExecute() {
@@ -44,21 +45,21 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        MediaType JSON
-                = MediaType.parse("application/json; charset=utf-8");
-
+        squad = new ArrayList<>();
         try {
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
+            Log.d("URL ", "http://192.168.43.58:5000/Team/squad/" + TeamName);
             Request request = new Request.Builder()
                     .url("http://192.168.43.58:5000/Team/squad/" + TeamName)
                     .build();
             Response response = client.newCall(request).execute();
-            String result = response.body().string();
+            String result = response.body().string().replace("\"", "");
+            Log.d("Res", result);
             Player p = new Player();
             try {
-                squad = new ArrayList<>();
-                JSONArray json = new JSONArray(result);
+                JSONObject object = new JSONObject(result);
+                JSONArray json = object.getJSONArray("result");
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject player = json.getJSONObject(i);
                     p.setId(player.getString("Player_id"));
@@ -85,6 +86,9 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean status) {
         pd.dismiss();
         if (status) {
+            for (Player p : squad) {
+                Log.d("Player ", p.getlName());
+            }
             SquadListAdapter adapter = new SquadListAdapter(squad, context);
             lv.setAdapter(adapter);
         } else {

@@ -36,9 +36,10 @@
         android:textSize="15sp" />
 
     <ListView
+        android:id="@+id/match_facts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/score"></ListView>
+        android:layout_below="@+id/score" />
 
     <TextView
         android:id="@+id/team1"

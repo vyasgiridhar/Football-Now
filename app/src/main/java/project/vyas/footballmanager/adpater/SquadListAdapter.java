@@ -1,6 +1,7 @@
 package project.vyas.footballmanager.adpater;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class SquadListAdapter extends ArrayAdapter<Player> {
         }
 
         lastPosition = position;
-
+        Log.d("Pos", " " + position);
         viewHolder.Name.setText(Data.get(position).getfName() + " " + Data.get(position).getlName());
         viewHolder.Position.setText(Data.get(position).getPosition());
         Picasso.with(context)

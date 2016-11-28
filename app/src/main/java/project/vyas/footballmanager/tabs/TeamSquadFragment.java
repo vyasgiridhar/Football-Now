@@ -36,7 +36,7 @@ public class TeamSquadFragment extends Fragment {
 
         Bundle B = getArguments();
         TeamName = B.getString("TeamName");
-        new GetSquad(squadList, TeamName, view.getContext());
+        new GetSquad(squadList, TeamName, view.getContext()).execute();
         return view;
     }
 

@@ -37,8 +37,6 @@ public class TeamStatFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.team_view_info_fragment, container, false);
         String TeamName = getArguments().getString("TeamName");
-        new GetTeamStat(header, header1, header2, TeamName, view.getContext());
-
         Card card = new Card(view.getContext());
         header = new CardHeader(view.getContext());
         card.addCardHeader(header);
@@ -56,6 +54,7 @@ public class TeamStatFragment extends Fragment {
         card2.addCardHeader(header2);
         CardView cardView2 = (CardView) view.findViewById(R.id.team_stat_stadium);
         cardView2.setCard(card2);
+        new GetTeamStat(header, header1, header2, TeamName, view.getContext()).execute();
 
         return view;
     }

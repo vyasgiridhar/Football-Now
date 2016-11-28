@@ -51,19 +51,21 @@ public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
                     .url("http://192.168.43.58:5000/Team/stat/" + TeamName)
                     .build();
             Response response = client.newCall(request).execute();
-            String result = response.body().string();
+            String result = response.body().string().replace("\"", "");
+            Log.d("result", result);
             stat = new TeamStat();
             try {
-                JSONArray json = new JSONArray(result);
+                JSONObject object = new JSONObject(result);
+                JSONArray json = object.getJSONArray("result");
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject team = json.getJSONObject(i);
-                    if (team.get("Captain") != null) {
+                    if (!team.isNull("Captain")) {
                         stat.setCaptain(team.getString("Captain"));
                     }
-                    if (team.get("Manager") != null) {
+                    if (!team.isNull("Manager")) {
                         stat.setManager(team.getString("Manager"));
                     }
-                    if (team.get("Stadium") != null) {
+                    if (!team.isNull("Stadium")) {
                         stat.setStadium(team.getString("Stadium"));
                     }
                 }
