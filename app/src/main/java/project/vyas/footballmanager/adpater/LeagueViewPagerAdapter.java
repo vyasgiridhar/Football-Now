@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import project.vyas.footballmanager.tabs.FixtureViewFragment;
+import project.vyas.footballmanager.tabs.LeagueStandingsFragment;
+
 /**
  * Created by vyas on 11/19/16.
  */
@@ -32,11 +34,10 @@ public class LeagueViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                //TODO: League Table
+                return LeagueStandingsFragment.newInstance(LeagueName);
 
             case 1:
-                FixtureViewFragment fixtureViewFragment = FixtureViewFragment.newInstance(false, true, false, null, LeagueName, 0);
-                return fixtureViewFragment;
+                return FixtureViewFragment.newInstance(false, true, false, null, LeagueName, 0);
         }
         return null;
     }

@@ -73,7 +73,7 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
                 String date = new StringBuilder()
                         .append(c.get(Calendar.YEAR)).append("-")
                         .append(c.get(Calendar.MONTH) + 1).append("-")
-                        .append(c.get(Calendar.DATE)).toString();
+                        .append(c.get(Calendar.DATE) + day).toString();
 
                 url = "/Fixture/day/" + date;
             }

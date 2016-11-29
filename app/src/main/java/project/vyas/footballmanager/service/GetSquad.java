@@ -55,13 +55,14 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
                     .build();
             Response response = client.newCall(request).execute();
             String result = response.body().string().replace("\"", "");
-            Log.d("Res", result);
             Player p = new Player();
             try {
                 JSONObject object = new JSONObject(result);
                 JSONArray json = object.getJSONArray("result");
+                JSONObject player;
                 for (int i = 0; i < json.length(); i++) {
-                    JSONObject player = json.getJSONObject(i);
+                    player = json.getJSONObject(i);
+                    p = new Player();
                     p.setId(player.getString("Player_id"));
                     p.setfName(player.getString("fname"));
                     p.setlName(player.getString("l_name"));

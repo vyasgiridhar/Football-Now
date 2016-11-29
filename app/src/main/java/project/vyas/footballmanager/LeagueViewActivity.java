@@ -5,7 +5,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import project.vyas.footballmanager.adpater.LeagueViewPagerAdapter;
 
@@ -29,8 +28,6 @@ public class LeagueViewActivity extends AppCompatActivity {
         Bundle teamInfo = getIntent().getExtras();
         LeagueName = teamInfo.getString("League Name");
 
-
-        Log.d("Hi ", (Integer.toString(R.id.league_pager)));
         viewPager = (ViewPager) findViewById(R.id.league_pager);
         viewPager.setAdapter(new LeagueViewPagerAdapter(getSupportFragmentManager(), LeagueName));
         viewPager.setCurrentItem(0);

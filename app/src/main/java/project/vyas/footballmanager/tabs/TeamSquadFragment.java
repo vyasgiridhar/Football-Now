@@ -23,7 +23,7 @@ public class TeamSquadFragment extends Fragment {
         TeamSquadFragment myFragment = new TeamSquadFragment();
 
         Bundle args = new Bundle();
-        args.putString("TeamName", TeamName);
+        args.putString("Team Name", TeamName);
         myFragment.setArguments(args);
 
         return myFragment;
@@ -35,7 +35,7 @@ public class TeamSquadFragment extends Fragment {
         ListView squadList = (ListView) view.findViewById(R.id.squadlist);
 
         Bundle B = getArguments();
-        TeamName = B.getString("TeamName");
+        TeamName = B.getString("Team Name");
         new GetSquad(squadList, TeamName, view.getContext()).execute();
         return view;
     }

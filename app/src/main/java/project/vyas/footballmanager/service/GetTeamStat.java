@@ -4,12 +4,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import it.gmariotti.cardslib.library.internal.CardHeader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -25,12 +29,10 @@ public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
     private Context context;
     private ProgressDialog pd;
     private TeamStat stat;
-    private CardHeader ch1, ch2, ch3;
+    private ListView view;
 
-    public GetTeamStat(CardHeader c, CardHeader c1, CardHeader c2, String Name, Context context) {
-        this.ch1 = c;
-        this.ch2 = c1;
-        this.ch3 = c2;
+    public GetTeamStat(ListView lv, String Name, Context context) {
+        this.view = lv;
         this.TeamName = Name;
         this.context = context;
     }
@@ -86,9 +88,9 @@ public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
     protected void onPostExecute(Boolean status) {
         pd.dismiss();
         if (status) {
-            ch1.setTitle("Manager : " + stat.getManager());
-            ch2.setTitle("Captain : " + stat.getCaptain());
-            ch3.setTitle("Stadium : " + stat.getStadium());
+            ArrayList<String> data = new ArrayList<>(Arrays.asList("Manager : " + stat.getManager(), "Captain : " + stat.getCaptain(), "Stadium : " + stat.getStadium()));
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, data);
+            view.setAdapter(adapter);
         } else {
             Toast.makeText(context, "Network Error", Toast.LENGTH_LONG).show();
         }
