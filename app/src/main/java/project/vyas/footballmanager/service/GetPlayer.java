@@ -117,11 +117,11 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
                             break;
                         case 2:
                             text1.setText(list.get(position));
-                            text2.setText(player.getRating());
+                            text2.setText(player.getRating() + "");
                             break;
                         case 3:
                             text1.setText(list.get(position));
-                            text2.setText(player.getAge());
+                            text2.setText(player.getAge() + "");
                             break;
                         case 4:
                             text1.setText(list.get(position));
@@ -129,27 +129,27 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
                             break;
                         case 5:
                             text1.setText(list.get(position));
-                            text2.setText(player.getStrength());
+                            text2.setText(player.getStrength() + "");
                             break;
                         case 6:
                             text1.setText(list.get(position));
-                            text2.setText(player.getPassing());
+                            text2.setText(player.getPassing() + "");
                             break;
                         case 7:
                             text1.setText(list.get(position));
-                            text2.setText(player.getPace());
+                            text2.setText(player.getPace() + "");
                             break;
                         case 8:
                             text1.setText(list.get(position));
-                            text2.setText(player.getDribbling());
+                            text2.setText(player.getDribbling() + "");
                             break;
                         case 9:
                             text1.setText(list.get(position));
-                            text2.setText(player.getDefence());
+                            text2.setText(player.getDefence() + "");
                             break;
                         case 10:
                             text1.setText(list.get(position));
-                            text2.setText(player.getShot());
+                            text2.setText(player.getShot() + "");
                             break;
                         case 11:
                             text1.setText(list.get(position));

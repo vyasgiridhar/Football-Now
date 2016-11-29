@@ -26,6 +26,7 @@
         <activity android:name=".LeagueViewActivity" />
         <activity android:name=".MatchViewActivity" />
         <activity android:name=".PlayerViewActivity" />
+        <activity android:name=".LeagueFactsActivity"/>
     </application>
 
 </manifest>
