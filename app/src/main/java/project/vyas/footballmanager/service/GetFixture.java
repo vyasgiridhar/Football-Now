@@ -79,7 +79,7 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
             }
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
-            url = "http://192.168.43.58:5000" + url;
+            url = "http://192.168.43.59:5000" + url;
             Log.d("URL", url);
             Request request = new Request.Builder()
                     .url(url)

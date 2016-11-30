@@ -53,7 +53,7 @@ public class GetMatch extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        String url = "http://192.168.43.58:5000" + "/Match/" + LeagueCode + "/" + GameWeek + "/" + GameNo;
+        String url = "http://192.168.43.59:5000" + "/Match/" + LeagueCode + "/" + GameWeek + "/" + GameNo;
         Match m = new Match();
         listInfo = new ArrayList<>();
         ArrayList<String> homeScorers = new ArrayList<>();

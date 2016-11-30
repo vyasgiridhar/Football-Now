@@ -56,7 +56,7 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
         JSONObject json = null;
         try {
             OkHttpClient client = new OkHttpClient();
-            url = "http://192.168.43.58:5000" + "/Player/" + PlayerName;
+            url = "http://192.168.43.59:5000" + "/Player/" + PlayerName;
             Log.d("URL", url);
             url = url.replace(" ", "%20");
             Request request = new Request.Builder()

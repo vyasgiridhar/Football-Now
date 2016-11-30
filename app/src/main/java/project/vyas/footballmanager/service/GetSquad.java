@@ -49,9 +49,9 @@ public class GetSquad extends AsyncTask<Void, Void, Boolean> {
         try {
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
-            Log.d("URL ", "http://192.168.43.58:5000/Team/squad/" + TeamName);
+            Log.d("URL ", "http://192.168.43.59:5000/Team/squad/" + TeamName);
             Request request = new Request.Builder()
-                    .url("http://192.168.43.58:5000/Team/squad/" + TeamName)
+                    .url("http://192.168.43.59:5000/Team/squad/" + TeamName)
                     .build();
             Response response = client.newCall(request).execute();
             String result = response.body().string().replace("\"", "");

@@ -44,7 +44,7 @@ public class GetTeams extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        String url = "http://192.168.43.58:5000" + "/League/Teams/" + Lcode;
+        String url = "http://192.168.43.59:5000" + "/League/Teams/" + Lcode;
         list = new ArrayList<>();
         try {
             OkHttpClient client = new OkHttpClient();
