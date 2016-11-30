@@ -97,7 +97,7 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
         pd.dismiss();
         if (status) {
             tv.setText(player.getfName() + " " + player.getlName());
-            final ArrayList<String> list = new ArrayList<>(Arrays.asList("Team_name", "Overall_rating",
+            final ArrayList<String> list = new ArrayList<>(Arrays.asList("Team name", "Overall rating",
                     "Age", "Nationality", "Strength",
                     "Passing", "Pace", "Dribbling", "Defence",
                     "Shot", "Foot"));
@@ -109,49 +109,46 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
                     TextView text2 = (TextView) view.findViewById(android.R.id.text2);
                     switch (position) {
                         case 0:
-                            text1.setText("Player Name");
-                            text2.setText(PlayerName);
-                        case 1:
                             text1.setText(list.get(position));
                             text2.setText(player.getTeamName());
                             break;
-                        case 2:
+                        case 1:
                             text1.setText(list.get(position));
                             text2.setText(player.getRating() + "");
                             break;
-                        case 3:
+                        case 2:
                             text1.setText(list.get(position));
                             text2.setText(player.getAge() + "");
                             break;
-                        case 4:
+                        case 3:
                             text1.setText(list.get(position));
                             text2.setText(player.getNationality());
                             break;
-                        case 5:
+                        case 4:
                             text1.setText(list.get(position));
                             text2.setText(player.getStrength() + "");
                             break;
-                        case 6:
+                        case 5:
                             text1.setText(list.get(position));
                             text2.setText(player.getPassing() + "");
                             break;
-                        case 7:
+                        case 6:
                             text1.setText(list.get(position));
                             text2.setText(player.getPace() + "");
                             break;
-                        case 8:
+                        case 7:
                             text1.setText(list.get(position));
                             text2.setText(player.getDribbling() + "");
                             break;
-                        case 9:
+                        case 8:
                             text1.setText(list.get(position));
                             text2.setText(player.getDefence() + "");
                             break;
-                        case 10:
+                        case 9:
                             text1.setText(list.get(position));
                             text2.setText(player.getShot() + "");
                             break;
-                        case 11:
+                        case 10:
                             text1.setText(list.get(position));
                             text2.setText(player.getFoot());
                             break;
