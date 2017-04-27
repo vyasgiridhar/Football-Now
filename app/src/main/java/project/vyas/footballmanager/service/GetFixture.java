@@ -22,7 +22,7 @@ import project.vyas.footballmanager.adpater.FixtureListAdapter;
 import project.vyas.footballmanager.model.Fixture;
 
 /**
- * Created by vyas on 11/24/16.
+ * Created by Prasanna on11/24/16.
  */
 
 public class GetFixture extends AsyncTask<Void, Void, Boolean> {
@@ -79,7 +79,7 @@ public class GetFixture extends AsyncTask<Void, Void, Boolean> {
             }
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
-            url = "http://192.168.43.59:5000" + url;
+            url = "http://172.104.51.13:5000" + url;
             Log.d("URL", url);
             Request request = new Request.Builder()
                     .url(url)

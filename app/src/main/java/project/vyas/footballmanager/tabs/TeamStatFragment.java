@@ -11,7 +11,7 @@ import project.vyas.footballmanager.R;
 import project.vyas.footballmanager.service.GetTeamStat;
 
 /**
- * Created by vyas on 11/19/16.
+ * Created by Prasanna on11/19/16.
  */
 
 public class TeamStatFragment extends Fragment {

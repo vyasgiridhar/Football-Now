@@ -24,7 +24,7 @@ import project.vyas.footballmanager.model.Player;
 
 
 /**
- * Created by vyas on 11/25/16.
+ * Created by Prasanna on11/25/16.
  */
 
 public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
@@ -56,7 +56,7 @@ public class GetPlayer extends AsyncTask<Void, Void, Boolean> {
         JSONObject json = null;
         try {
             OkHttpClient client = new OkHttpClient();
-            url = "http://192.168.43.59:5000" + "/Player/" + PlayerName;
+            url = "http://172.104.51.13:5000" + "/Player/" + PlayerName;
             Log.d("URL", url);
             url = url.replace(" ", "%20");
             Request request = new Request.Builder()

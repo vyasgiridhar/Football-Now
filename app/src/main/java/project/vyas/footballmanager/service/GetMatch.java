@@ -19,7 +19,7 @@ import okhttp3.Response;
 import project.vyas.footballmanager.model.Match;
 
 /**
- * Created by vyas on 11/26/16.
+ * Created by Prasanna on11/26/16.
  */
 
 public class GetMatch extends AsyncTask<Void, Void, Boolean> {
@@ -53,7 +53,7 @@ public class GetMatch extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        String url = "http://192.168.43.59:5000" + "/Match/" + LeagueCode + "/" + GameWeek + "/" + GameNo;
+        String url = "http://172.104.51.13:5000" + "/Match/" + LeagueCode + "/" + GameWeek + "/" + GameNo;
         Match m = new Match();
         listInfo = new ArrayList<>();
         ArrayList<String> homeScorers = new ArrayList<>();

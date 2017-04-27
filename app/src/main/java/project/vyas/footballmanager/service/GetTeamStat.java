@@ -20,7 +20,7 @@ import okhttp3.Response;
 import project.vyas.footballmanager.model.TeamStat;
 
 /**
- * Created by vyas on 11/23/16.
+ * Created by Prasanna on11/23/16.
  */
 
 public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
@@ -50,7 +50,7 @@ public class GetTeamStat extends AsyncTask<Void, Void, Boolean> {
             Log.d("Here ", "OK");
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://192.168.43.59:5000/Team/stat/" + TeamName)
+                    .url("http://172.104.51.13:5000/Team/stat/" + TeamName)
                     .build();
             Response response = client.newCall(request).execute();
             String result = response.body().string().replace("\"", "");

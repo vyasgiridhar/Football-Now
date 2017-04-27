@@ -15,7 +15,7 @@ import project.vyas.footballmanager.R;
 import project.vyas.footballmanager.service.GetTeams;
 
 /**
- * Created by vyas on 11/29/16.
+ * Created by Prasanna on11/29/16.
  */
 
 public class LeagueStandingsFragment extends Fragment {

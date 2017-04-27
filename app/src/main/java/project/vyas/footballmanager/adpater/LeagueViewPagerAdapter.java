@@ -9,7 +9,7 @@ import project.vyas.footballmanager.tabs.FixtureViewFragment;
 import project.vyas.footballmanager.tabs.LeagueStandingsFragment;
 
 /**
- * Created by vyas on 11/19/16.
+ * Created by Prasanna on11/19/16.
  */
 
 public class LeagueViewPagerAdapter extends FragmentPagerAdapter {

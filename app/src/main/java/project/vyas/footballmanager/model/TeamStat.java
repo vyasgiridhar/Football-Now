@@ -1,7 +1,7 @@
 package project.vyas.footballmanager.model;
 
 /**
- * Created by vyas on 11/23/16.
+ * Created by Prasanna on11/23/16.
  */
 
 public class TeamStat {

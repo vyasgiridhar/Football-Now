@@ -10,7 +10,7 @@ import project.vyas.footballmanager.tabs.TeamSquadFragment;
 import project.vyas.footballmanager.tabs.TeamStatFragment;
 
 /**
- * Created by vyas on 11/19/16.
+ * Created by Prasanna on11/19/16.
  */
 
 public class TeamViewPagerAdapter extends FragmentPagerAdapter {

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import project.vyas.footballmanager.service.GetMatch;
 
 /**
- * Created by vyas on 11/27/16.
+ * Created by Prasanna on11/27/16.
  */
 
 public class MatchViewActivity extends AppCompatActivity {

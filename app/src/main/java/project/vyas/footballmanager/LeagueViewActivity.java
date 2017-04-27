@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import project.vyas.footballmanager.adpater.LeagueViewPagerAdapter;
 
 /**
- * Created by vyas on 11/19/16.
+ * Created by Prasanna on11/19/16.
  */
 
 public class LeagueViewActivity extends AppCompatActivity {

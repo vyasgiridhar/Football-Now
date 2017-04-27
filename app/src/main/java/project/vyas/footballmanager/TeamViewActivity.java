@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import project.vyas.footballmanager.adpater.TeamViewPagerAdapter;
 
 /**
- * Created by vyas on 11/18/16.
+ * Created by Prasanna on11/18/16.
  */
 
 public class TeamViewActivity extends AppCompatActivity {

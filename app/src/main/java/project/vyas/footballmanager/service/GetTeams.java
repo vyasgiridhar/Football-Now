@@ -19,7 +19,7 @@ import okhttp3.Response;
 
 
 /**
- * Created by vyas on 11/30/16.
+ * Created by Prasanna on11/30/16.
  */
 
 public class GetTeams extends AsyncTask<Void, Void, Boolean> {
@@ -44,7 +44,7 @@ public class GetTeams extends AsyncTask<Void, Void, Boolean> {
     }
 
     protected Boolean doInBackground(Void... aParams) {
-        String url = "http://192.168.43.59:5000" + "/League/Teams/" + Lcode;
+        String url = "http://172.104.51.13:5000" + "/League/Teams/" + Lcode;
         list = new ArrayList<>();
         try {
             OkHttpClient client = new OkHttpClient();

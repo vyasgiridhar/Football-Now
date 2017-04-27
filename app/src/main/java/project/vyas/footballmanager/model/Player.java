@@ -1,7 +1,7 @@
 package project.vyas.footballmanager.model;
 
 /**
- * Created by vyas on 11/20/16.
+ * Created by Prasanna on11/20/16.
  */
 
 public class Player {

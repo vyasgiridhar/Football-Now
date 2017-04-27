@@ -17,7 +17,7 @@ import project.vyas.footballmanager.model.Player;
 import project.vyas.footballmanager.service.GetSquad;
 
 /**
- * Created by vyas on 11/19/16.
+ * Created by Prasanna on11/19/16.
  */
 
 public class TeamSquadFragment extends Fragment {
